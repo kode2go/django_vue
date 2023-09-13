@@ -13,6 +13,8 @@
 
     <div id="vue-app">
         <p>
+            <strong>Person Index:</strong> [[ index ]]
+            <br>
             <strong>First Name:</strong> [[ firstName ]]
             <br>
             <strong>Last Name:</strong> [[ lastName ]]
@@ -26,6 +28,7 @@
             data: {
                 firstName: '', // Initialize with empty string
                 lastName: '',  // Initialize with empty string
+                index: '', // 
             },
             mounted: function() {
                 // Log that the component is mounted
@@ -37,12 +40,15 @@
                         // Log only the first_name and last_name properties from the API response
                         console.log('API Response:');
                         response.data.forEach(person => {
+                            console.log('Index:', person.id);
                             console.log('First Name:', person.first_name);
                             console.log('Last Name:', person.last_name);
 
                             // Update data properties with values from API response
+                            this.index = person.id;
                             this.firstName = person.first_name;
                             this.lastName = person.last_name;
+                            
                         });
                     })
                     .catch(error => {
