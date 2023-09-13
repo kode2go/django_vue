@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... other head content ... -->
+    {% load static %}
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="{% static 'js/PersonList.js' %}"></script>
+</head>
+<body>
+    <!-- ... your existing HTML content ... -->
+    <p>Hello world</p>
+
+    <div id="vue-app">
+        [[ message ]]
+    </div>
+
+    <script>
+        var app = new Vue({
+            delimiters: ["[[", "]]"],
+            el: '#vue-app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+    </script>
+</body>
+</html>
